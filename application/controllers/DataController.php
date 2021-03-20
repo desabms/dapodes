@@ -1,7 +1,8 @@
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dataum extends CI_Controller
+class DataController extends CI_Controller
 {
     public function __construct()
     {
@@ -13,7 +14,7 @@ class Dataum extends CI_Controller
     }
     function index()
     {
-      $data['user'] = $this->mdb->getAll();
+      $data['user'] = $this->$mdb->getAll();
       $data = array(
           'title'     => 'Dashboard'
       );
