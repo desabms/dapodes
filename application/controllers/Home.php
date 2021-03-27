@@ -14,7 +14,7 @@ class Home extends CI_Controller
         $data = [
             'title' => 'Dashboard'
         ];
-        $data = $this->load->view('layout/header');
+        $data = $this->load->view('layout/header',$data);
         $data = $this->load->view('layout/sidebar');
         $data = $this->load->view('layout/navbar');
         $this->load->view('index', $data);

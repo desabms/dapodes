@@ -19,7 +19,7 @@ class Login extends CI_Controller
 			'title' => 'Login'
 		];
 
-		$data = $this->load->view('layout/header');
+		$data = $this->load->view('layout/header',$data);
 		$this->load->view('vLogin', $data);
 		$data = $this->load->view('layout/footer');
 	}

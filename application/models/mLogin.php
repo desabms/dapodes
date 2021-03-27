@@ -2,7 +2,7 @@
 
 class mLogin extends CI_Model
 {
-    private $_table = "tbl_admin";
+    private $_table = "admin";
 
     public function doLogin()
     {
@@ -15,9 +15,7 @@ class mLogin extends CI_Model
         // jika user terdaftar
         if ($user) {
             // periksa password-nya
-            $isPasswordTrue = password_verify($post["password"], $user->password);
-            // periksa role-nya
-            // $isAdmin = $user->role == "admin";
+            $isPasswordTrue = md5($post["password"], $user->password);
 
             // jika password benar
             if ($isPasswordTrue) {
@@ -39,7 +37,7 @@ class mLogin extends CI_Model
 
     private function _updateLastLogin($user_id)
     {
-        $sql = "UPDATE {$this->_table} SET last_login=now() WHERE id_admin={$user_id}";
+        $sql = "UPDATE {$this->_table} SET create_at=now() WHERE id_admin={$user_id}";
         $this->db->query($sql);
     }
 }
